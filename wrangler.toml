@@ -18,6 +18,15 @@ NEXT_PUBLIC_CONTACT_EMAIL = "gokul@addtocloud.tech"
 NEXT_PUBLIC_CONTACT_EMAIL = "gokul@addtocloud.tech"
 
 # Secrets (set via wrangler secret put or GitHub Actions)
+# Email service API keys (choose one)
+# RESEND_API_KEY
+# EMAILJS_SERVICE_ID
+# EMAILJS_TEMPLATE_ID
+# EMAILJS_PUBLIC_KEY
+# EMAILJS_PRIVATE_KEY
+# SMTP2GO_API_KEY
+
+# Legacy SMTP configurations
 # SMTP_HOST
 # SMTP_PORT  
 # SMTP_USER
@@ -26,6 +35,8 @@ NEXT_PUBLIC_CONTACT_EMAIL = "gokul@addtocloud.tech"
 # ZOHO_SMTP_PORT
 # ZOHO_SMTP_USER
 # ZOHO_SMTP_PASSWORD
+
+# Cloudflare configuration
 # CLOUDFLARE_API_TOKEN
 # CLOUDFLARE_ACCOUNT_ID
 # CLOUDFLARE_ZONE_ID
