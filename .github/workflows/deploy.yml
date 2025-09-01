@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'npm'
 
       - name: Install dependencies
@@ -30,6 +30,18 @@ jobs:
           NEXT_PUBLIC_SITE_URL: https://portfolio-e5u.pages.dev
           NEXT_PUBLIC_CONTACT_EMAIL: gokul@addtocloud.tech
 
+      - name: Check build output
+        run: |
+          echo "Checking if out directory exists..."
+          ls -la
+          if [ -d "out" ]; then
+            echo "✅ out directory exists"
+            ls -la out/
+          else
+            echo "❌ out directory not found!"
+            exit 1
+          fi
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
@@ -39,14 +51,5 @@ jobs:
           directory: out
           # Optional: Use a custom domain
           # gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Deploy Wrangler Configuration
-        run: |
-          echo "Setting up Wrangler secrets..."
-          npx wrangler pages secret put ZOHO_SMTP_HOST --project-name portfolio --env production <<< "${{ secrets.ZOHO_SMTP_HOST }}"
-          npx wrangler pages secret put ZOHO_SMTP_PORT --project-name portfolio --env production <<< "${{ secrets.ZOHO_SMTP_PORT }}"
-          npx wrangler pages secret put ZOHO_SMTP_USER --project-name portfolio --env production <<< "${{ secrets.ZOHO_SMTP_USER }}"
-          npx wrangler pages secret put ZOHO_SMTP_PASSWORD --project-name portfolio --env production <<< "${{ secrets.ZOHO_SMTP_PASSWORD }}"
-        env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
