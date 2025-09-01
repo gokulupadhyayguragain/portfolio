@@ -132,11 +132,20 @@ export default function BackgroundMusic() {
     audio.addEventListener('canplaythrough', attemptPlay);
     audio.addEventListener('loadeddata', attemptPlay);
 
+    // Keep-alive mechanism to prevent unexpected stops
+    const keepAliveInterval = setInterval(() => {
+      if (audio && isPlaying && audio.paused) {
+        console.log("🚨 Audio stopped unexpectedly! Restarting...");
+        audio.play().catch(e => console.log("Keep-alive failed:", e));
+      }
+    }, 3000);
+
     return () => {
       audio.removeEventListener('canplaythrough', attemptPlay);
       audio.removeEventListener('loadeddata', attemptPlay);
+      clearInterval(keepAliveInterval);
     };
-  }, [volume]);
+  }, [volume, isPlaying]);
 
   const togglePlay = async () => {
     const audio = audioRef.current;
@@ -146,13 +155,31 @@ export default function BackgroundMusic() {
       if (isPlaying) {
         audio.pause();
         setIsPlaying(false);
+        console.log("⏸️ Audio paused by user");
       } else {
+        // Ensure audio is unmuted and has proper volume
+        audio.muted = false;
+        audio.volume = volume;
+        audio.currentTime = 0; // Restart from beginning
         await audio.play();
         setIsPlaying(true);
-        setIsVisible(false);
+        setIsVisible(true); // Keep controls visible
+        console.log("▶️ Audio manually started by user");
       }
     } catch (error) {
-      console.log("Audio control error:", error);
+      console.log("❌ Audio control error:", error);
+      // Try to force play if normal play fails
+      if (!isPlaying) {
+        audio.muted = true;
+        audio.play().then(() => {
+          setTimeout(() => {
+            audio.muted = false;
+            audio.volume = volume;
+          }, 500);
+          setIsPlaying(true);
+          console.log("🔇 Audio started muted, will unmute");
+        }).catch(e => console.log("Force play also failed:", e));
+      }
     }
   };
 
