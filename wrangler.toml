@@ -10,14 +10,7 @@ compatibility_flags = ["nodejs_compat"]
 [[env.production.vars]]
 NEXT_PUBLIC_SITE_URL = "https://portfolio-e5u.pages.dev"
 
-[build]
-command = "npm run build"
-cwd = "."
-
-[build.environment_variables]
-NODE_VERSION = "18"
-
-# Environment variables for SMTP (will be set via secrets)
+# Environment variables for production
 [vars]
 NEXT_PUBLIC_CONTACT_EMAIL = "gokul@addtocloud.tech"
 
@@ -26,6 +19,10 @@ NEXT_PUBLIC_CONTACT_EMAIL = "gokul@addtocloud.tech"
 # SMTP_PORT  
 # SMTP_USER
 # SMTP_PASSWORD
+# ZOHO_SMTP_HOST
+# ZOHO_SMTP_PORT
+# ZOHO_SMTP_USER
+# ZOHO_SMTP_PASSWORD
 # CLOUDFLARE_API_TOKEN
 # CLOUDFLARE_ACCOUNT_ID
 # CLOUDFLARE_ZONE_ID
