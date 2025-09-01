@@ -30,7 +30,7 @@ const Certifications = () => {
       title: "Microsoft Fabric Analytics Engineer Associate",
       issuer: "Microsoft",
       badge: "https://tse1.mm.bing.net/th/id/OIP.rBVY7S3ocIghr7mL2-y59wHaD4?rs=1&pid=ImgDetMain&o=7&rm=3",
-      description: "Data fabric and analytics engineering with Microsoft Fabric",
+      description: "Data fabric and analytics with Microsoft Fabric",
       verifyLink: "https://www.credly.com/users/gokulupadhyayguragain/badges",
       issued: "2024"
     },

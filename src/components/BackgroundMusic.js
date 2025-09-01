@@ -16,80 +16,93 @@ export default function BackgroundMusic() {
     // Set audio properties for infinite loop and auto-play
     audio.loop = true;
     audio.volume = volume;
-    audio.muted = false;
+    audio.muted = true; // Start muted to avoid browser blocking
     audio.autoplay = true;
     audio.preload = "auto";
 
-    // Aggressive auto-play strategy
+    // Super aggressive auto-play strategy
     const forceAutoPlay = async () => {
       try {
+        console.log("🎵 Attempting to start music...");
+        
         // Reset audio to ensure fresh start
         audio.currentTime = 0;
+        audio.volume = volume;
         
-        // Try unmuted play first
-        audio.muted = false;
-        await audio.play();
-        setIsPlaying(true);
-        setIsVisible(true); // Always show controls
-        console.log("✅ Audio auto-playing successfully");
+        // Start muted (most likely to work)
+        audio.muted = true;
+        const playPromise = audio.play();
         
-      } catch (error) {
-        console.log("🔇 Unmuted auto-play blocked, trying muted...");
-        
-        try {
-          // Try muted auto-play (usually works)
-          audio.muted = true;
-          await audio.play();
+        if (playPromise !== undefined) {
+          await playPromise;
           setIsPlaying(true);
           setIsVisible(true);
-          console.log("🔇 Audio auto-playing muted (user can unmute)");
+          console.log("🔇 Audio auto-playing muted (will unmute on any interaction)");
           
-          // Auto-unmute after a short delay if user interacts
-          const autoUnmute = () => {
+          // Try to unmute immediately
+          setTimeout(() => {
             if (audio && !audio.paused) {
               audio.muted = false;
-              console.log("🔊 Audio unmuted after user interaction");
+              console.log("� Auto-unmuted after 100ms");
             }
-          };
+          }, 100);
           
-          // Listen for any user interaction to unmute
-          document.addEventListener('click', autoUnmute, { once: true });
-          document.addEventListener('touchstart', autoUnmute, { once: true });
-          document.addEventListener('keydown', autoUnmute, { once: true });
-          document.addEventListener('scroll', autoUnmute, { once: true });
-          document.addEventListener('mousemove', autoUnmute, { once: true });
-          
-        } catch (mutedError) {
-          console.log("❌ Even muted auto-play failed, showing controls");
-          setIsVisible(true);
-          
-          // Force play on ANY user interaction
-          const forcePlay = async (e) => {
-            try {
+          // Auto-unmute on ANY user interaction
+          const autoUnmute = () => {
+            if (audio && !audio.paused && audio.muted) {
               audio.muted = false;
-              audio.currentTime = 0;
-              await audio.play();
-              setIsPlaying(true);
-              console.log("✅ Audio started after user interaction");
-              
-              // Remove all interaction listeners
-              document.removeEventListener('click', forcePlay);
-              document.removeEventListener('touchstart', forcePlay);
-              document.removeEventListener('keydown', forcePlay);
-              document.removeEventListener('scroll', forcePlay);
-              document.removeEventListener('mousemove', forcePlay);
-            } catch (err) {
-              console.log("❌ Failed to start audio:", err);
+              console.log("🔊 Audio unmuted after user interaction");
+              // Remove all listeners after successful unmute
+              document.removeEventListener('click', autoUnmute);
+              document.removeEventListener('touchstart', autoUnmute);
+              document.removeEventListener('keydown', autoUnmute);
+              document.removeEventListener('scroll', autoUnmute);
+              document.removeEventListener('mousemove', autoUnmute);
+              window.removeEventListener('focus', autoUnmute);
             }
           };
-
-          // Add multiple interaction listeners
-          document.addEventListener('click', forcePlay);
-          document.addEventListener('touchstart', forcePlay);
-          document.addEventListener('keydown', forcePlay);
-          document.addEventListener('scroll', forcePlay);
-          document.addEventListener('mousemove', forcePlay);
+          
+          // Listen for various user interactions to unmute
+          document.addEventListener('click', autoUnmute, { passive: true });
+          document.addEventListener('touchstart', autoUnmute, { passive: true });
+          document.addEventListener('keydown', autoUnmute, { passive: true });
+          document.addEventListener('scroll', autoUnmute, { passive: true });
+          document.addEventListener('mousemove', autoUnmute, { passive: true });
+          window.addEventListener('focus', autoUnmute, { passive: true });
+          
+          return;
         }
+        
+      } catch (error) {
+        console.log("❌ Auto-play failed:", error);
+        setIsVisible(true);
+        
+        // Force play on ANY user interaction
+        const forcePlay = async () => {
+          try {
+            audio.muted = false;
+            audio.volume = volume;
+            audio.currentTime = 0;
+            await audio.play();
+            setIsPlaying(true);
+            console.log("🎵 Audio started after user interaction");
+            
+            // Remove listeners after successful play
+            document.removeEventListener('click', forcePlay);
+            document.removeEventListener('touchstart', forcePlay);
+            document.removeEventListener('keydown', forcePlay);
+            document.removeEventListener('scroll', forcePlay);
+            
+          } catch (forceError) {
+            console.log("❌ Force play failed:", forceError);
+          }
+        };
+        
+        // Listen for any interaction to force play
+        document.addEventListener('click', forcePlay, { once: true, passive: true });
+        document.addEventListener('touchstart', forcePlay, { once: true, passive: true });
+        document.addEventListener('keydown', forcePlay, { once: true, passive: true });
+        document.addEventListener('scroll', forcePlay, { once: true, passive: true });
       }
     };
 
@@ -162,6 +175,12 @@ export default function BackgroundMusic() {
         muted={false}
         controls={false}
         style={{ display: 'none' }}
+        onLoadStart={() => console.log('🎵 Audio loading started...')}
+        onCanPlay={() => console.log('✅ Audio can play - bgm.mp3 loaded successfully')}
+        onError={(e) => console.error('❌ Audio error:', e.target.error)}
+        onLoadedData={() => console.log('📀 Audio data loaded')}
+        onPlay={() => console.log('▶️ Audio started playing')}
+        onPause={() => console.log('⏸️ Audio paused')}
       >
         <source src="/bgm.mp3" type="audio/mpeg" />
         <source src="/bgm.ogg" type="audio/ogg" />

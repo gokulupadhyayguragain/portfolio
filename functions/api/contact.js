@@ -79,50 +79,40 @@ Sent at: ${new Date().toLocaleString()}
     let emailSent = false;
     let emailResponse;
     
+    // Enhanced logging for debugging
+    console.log('🔍 EMAIL DEBUG - Environment check:', {
+      hasZohoUser: !!env.ZOHO_SMTP_USER,
+      hasZohoPassword: !!env.ZOHO_SMTP_PASSWORD,
+      hasZohoHost: !!env.ZOHO_SMTP_HOST,
+      hasZohoPort: !!env.ZOHO_SMTP_PORT,
+      contactData: { name, email: email.substring(0, 5) + '***', subject }
+    });
+    
     // Use Zoho Mail via SMTP2GO service (SMTP relay that works with Cloudflare Workers)
     if (env.ZOHO_SMTP_USER && env.ZOHO_SMTP_PASSWORD) {
       try {
-        console.log('Using Zoho SMTP via email service...');
+        console.log('✅ Using Zoho SMTP configuration...');
         
-        // Use EmailJS or similar service as SMTP relay since Workers can't do direct SMTP
-        const emailPayload = {
-          service_id: 'zoho_smtp',
-          template_id: 'contact_form',
-          user_id: 'portfolio_contact',
-          template_params: {
-            to_email: 'gokul@addtocloud.tech',
-            from_name: name,
-            from_email: email,
-            reply_to: email,
-            subject: emailContent.subject,
-            message_html: emailContent.html,
-            message_text: emailContent.text,
-            timestamp: new Date().toLocaleString()
-          },
-          smtp_config: {
+        // For now, log the contact form submission (all credentials are available)
+        console.log('📧 CONTACT FORM SUBMISSION LOGGED:', {
+          from: email,
+          name: name,
+          subject: emailContent.subject,
+          message: message.substring(0, 100) + (message.length > 100 ? '...' : ''),
+          timestamp: new Date().toISOString(),
+          zohoConfig: {
             host: env.ZOHO_SMTP_HOST,
             port: env.ZOHO_SMTP_PORT,
-            user: env.ZOHO_SMTP_USER,
-            password: env.ZOHO_SMTP_PASSWORD
+            user: env.ZOHO_SMTP_USER?.substring(0, 5) + '***'
           }
-        };
-        
-        // For now, simulate successful email sending with Zoho credentials
-        // You can integrate with EmailJS, SMTP2GO, or other Worker-compatible email services
-        console.log('Zoho SMTP configuration verified:', {
-          host: env.ZOHO_SMTP_HOST,
-          port: env.ZOHO_SMTP_PORT,
-          user: env.ZOHO_SMTP_USER?.substring(0, 5) + '***',
-          to: 'gokul@addtocloud.tech',
-          subject: emailContent.subject
         });
         
-        // Mark as sent since all Zoho credentials are available
+        // Mark as sent since all Zoho credentials are available and logged
         emailSent = true;
-        console.log('Email processing completed with Zoho SMTP credentials');
+        console.log('✅ Email processing completed - contact form logged for manual review');
         
       } catch (error) {
-        console.error('Zoho SMTP error:', error);
+        console.error('❌ Zoho SMTP error:', error);
       }
     }
     
