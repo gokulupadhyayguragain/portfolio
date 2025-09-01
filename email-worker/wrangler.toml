@@ -1,7 +1,6 @@
 name = "portfolio-email-worker"
 main = "src/index.js"
 compatibility_date = "2024-08-01"
-compatibility_flags = ["nodejs_compat"]
 
 # KV namespace for rate limiting (optional)
 # [[kv_namespaces]]
@@ -18,8 +17,8 @@ name = "portfolio-email-worker-dev"
 # Environment variables
 [vars]
 CORS_ORIGIN = "https://portfolio-e5u.pages.dev"
-FROM_EMAIL = "gokul@addtocloud.tech"
-TO_EMAIL = "noreply@addtocloud.tech"
+FROM_EMAIL = "onboarding@resend.dev"
+TO_EMAIL = "gokulupadhayaya19@gmail.com"
 
 # Secrets to be set via wrangler secret put
 # Use your existing SMTP credentials
