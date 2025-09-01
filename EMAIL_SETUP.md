@@ -1,46 +1,44 @@
 # Email Setup Guide for Portfolio Contact Form
 
 ## Overview
-Your portfolio contact form supports multiple email services, with **Zoho SMTP as the primary option** (since you already have Zoho Mail set up) and other services as fallbacks. The form will send emails from your Zoho account to `gokul@addtocloud.tech` when someone fills out the contact form.
+Your portfolio contact form uses **Cloudflare Functions** to handle email sending, with support for multiple email services. The form will send emails from `noreply@addtocloud.tech` to `gokul@addtocloud.tech` when someone fills out the contact form.
 
-## Recommended Setup: Zoho SMTP (Primary)
+## Architecture
+- **Frontend**: Next.js contact form (static export)
+- **Backend**: Cloudflare Function (`/functions/api/contact.js`)
+- **Email Services**: Resend, SMTP2GO, or EmailJS (configurable)
 
-Since you already have `addtocloud.tech` set up with Zoho Mail, this is the most straightforward option:
+## Recommended Setup: Resend (Primary)
 
-### Step 1: Enable SMTP in Zoho Mail
-1. Log into your Zoho Mail account
-2. Go to Settings → Mail → POP/IMAP Access
-3. Enable IMAP Access
-4. Note down the SMTP settings:
-   - **SMTP Server**: smtp.zoho.com
-   - **Port**: 587 (STARTTLS) or 465 (SSL/TLS)
-   - **Security**: STARTTLS or SSL/TLS
+Resend is the recommended email service because it works seamlessly with Cloudflare Functions:
 
-### Step 2: Create App Password (Recommended)
-1. Go to Zoho Accounts → Security → App Passwords
-2. Generate a new app password for "Mail"
-3. Use this instead of your main password (more secure)
+### Step 1: Create Resend Account
+1. Go to [resend.com](https://resend.com)
+2. Sign up with your email
+3. Verify your account
 
-### Step 3: Add to Environment Variables
-1. Update `.env.local`:
-   ```
-   ZOHO_SMTP_HOST=smtp.zoho.com
-   ZOHO_SMTP_PORT=587
-   ZOHO_SMTP_USER=your_email@addtocloud.tech
-   ZOHO_SMTP_PASSWORD=your_app_password
-   ```
+### Step 2: Add Your Domain
+1. In Resend dashboard, go to "Domains"
+2. Add `addtocloud.tech` as your domain
+3. Add the required DNS records to your domain registrar:
+   - SPF record
+   - DKIM records
+   - DMARC record (optional but recommended)
 
-2. For Cloudflare Pages deployment:
-   ```bash
-   wrangler pages secret put ZOHO_SMTP_HOST --project-name portfolio
-   wrangler pages secret put ZOHO_SMTP_PORT --project-name portfolio
-   wrangler pages secret put ZOHO_SMTP_USER --project-name portfolio
-   wrangler pages secret put ZOHO_SMTP_PASSWORD --project-name portfolio
-   ```
+### Step 3: Get API Key
+1. Go to "API Keys" in Resend dashboard
+2. Create a new API key
+3. Copy the key (starts with `re_`)
 
-## Alternative Setup: Resend (Fallback)
+### Step 4: Add to Environment Variables
+For Cloudflare Pages deployment:
+```bash
+wrangler pages secret put RESEND_API_KEY --project-name portfolio
+```
 
-If Zoho SMTP has issues in the serverless environment, Resend will automatically be used as a fallback.
+When prompted, enter your Resend API key.
+
+## Alternative Setup: SMTP2GO (Fallback)
 - Simple setup and great developer experience
 - Reliable delivery
 - Free tier: 3,000 emails/month
