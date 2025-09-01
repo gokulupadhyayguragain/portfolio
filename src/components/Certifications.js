@@ -29,7 +29,7 @@ const Certifications = () => {
       id: 3,
       title: "Microsoft Fabric Analytics Engineer Associate",
       issuer: "Microsoft",
-      badge: "https://images.credly.com/size/340x340/images/70eb1e3f-d4de-4377-a062-b20fb29594ea/image.png",
+      badge: "https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg",
       description: "Data fabric and analytics engineering with Microsoft Fabric",
       verifyLink: "https://www.credly.com/users/gokulupadhyayguragain/badges",
       issued: "2024"
@@ -86,6 +86,11 @@ const Certifications = () => {
                       width={120}
                       height={120}
                       className="rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-110"
+                      onError={(e) => {
+                        console.log(`Badge image failed to load: ${cert.badge}`);
+                        e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%23ec4899'/%3E%3Ctext x='60' y='60' text-anchor='middle' dy='0.3em' font-family='Arial' font-size='14' fill='white'%3E🏆%3C/text%3E%3C/svg%3E";
+                      }}
+                      unoptimized
                     />
                     <div className={`absolute inset-0 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300 ${
                       isDark ? 'bg-pink-400' : 'bg-pink-500'

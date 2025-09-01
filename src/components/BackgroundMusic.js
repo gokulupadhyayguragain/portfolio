@@ -161,10 +161,9 @@ export default function BackgroundMusic() {
         controls={false}
         style={{ display: 'none' }}
       >
-        <source src="/bgm/background-music.mp3" type="audio/mpeg" />
-        <source src="/bgm/background-music.ogg" type="audio/ogg" />
-        <source src="/bgm/background-music.wav" type="audio/wav" />
-        <source src="/background-music.mp3" type="audio/mpeg" />
+        <source src="/bgm.mp3" type="audio/mpeg" />
+        <source src="/bgm.ogg" type="audio/ogg" />
+        <source src="/bgm.wav" type="audio/wav" />
         Your browser does not support the audio element.
       </audio>
 
