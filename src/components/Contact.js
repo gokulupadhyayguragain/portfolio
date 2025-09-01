@@ -52,7 +52,7 @@ const Contact = () => {
   };
 
   return (
-    <section className={`py-16 ${isDark ? 'bg-gray-900' : 'bg-white'}`}>
+    <section className={`py-16 ${isDark ? 'bg-gray-900' : 'bg-sky-50'}`}>
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className={`text-4xl font-bold mb-4 ${isDark ? 'text-pink-300' : 'text-pink-600'}`}>
@@ -165,7 +165,7 @@ const Contact = () => {
           <div className={`p-8 rounded-xl ${
             isDark 
               ? 'bg-gray-800 border border-gray-700' 
-              : 'bg-white border border-gray-200 shadow-lg'
+              : 'bg-sky-50/50 border border-sky-200 shadow-lg'
           }`}>
             <h3 className={`text-2xl font-bold mb-6 ${isDark ? 'text-white' : 'text-gray-800'}`}>
               Send a Message
@@ -188,7 +188,7 @@ const Contact = () => {
                     className={`w-full px-4 py-3 rounded-lg border transition-colors ${
                       isDark 
                         ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-pink-500' 
-                        : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-pink-500'
+                        : 'bg-sky-50/50 border-sky-300 text-gray-900 placeholder-gray-500 focus:border-pink-500'
                     } focus:outline-none focus:ring-2 focus:ring-pink-500/20`}
                     placeholder="Your Name"
                   />
@@ -209,7 +209,7 @@ const Contact = () => {
                     className={`w-full px-4 py-3 rounded-lg border transition-colors ${
                       isDark 
                         ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-pink-500' 
-                        : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-pink-500'
+                        : 'bg-sky-50/50 border-sky-300 text-gray-900 placeholder-gray-500 focus:border-pink-500'
                     } focus:outline-none focus:ring-2 focus:ring-pink-500/20`}
                     placeholder="your.email@example.com"
                   />

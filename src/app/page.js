@@ -62,7 +62,7 @@ export default function Home() {
     <div className={`relative min-h-screen font-sans transition-all duration-500 ${
       isDarkMode 
         ? 'bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900' 
-        : 'bg-gradient-to-br from-blue-50 via-indigo-50 to-cyan-50'
+        : 'bg-gradient-to-br from-sky-50 via-blue-50 to-cyan-50'
     }`}>
       {/* Custom Tracking Cursor */}
       <CustomCursor />

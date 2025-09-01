@@ -6,7 +6,7 @@ const Footer = () => {
   const { isDark } = useTheme();
 
   return (
-    <footer className={`py-12 ${isDark ? 'bg-gray-900 border-t border-gray-800' : 'bg-gray-50 border-t border-gray-200'}`}>
+    <footer className={`py-12 ${isDark ? 'bg-gray-900 border-t border-gray-800' : 'bg-sky-50 border-t border-sky-200'}`}>
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           

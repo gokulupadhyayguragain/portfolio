@@ -29,7 +29,7 @@ const Certifications = () => {
       id: 3,
       title: "Microsoft Fabric Analytics Engineer Associate",
       issuer: "Microsoft",
-      badge: "https://images.credly.com/size/340x340/images/c3a2e51d-7984-48cc-a4cb-88d4e8487037/image.png",
+      badge: "https://images.credly.com/size/340x340/images/70eb1e3f-d4de-4377-a062-b20fb29594ea/image.png",
       description: "Data fabric and analytics engineering with Microsoft Fabric",
       verifyLink: "https://www.credly.com/users/gokulupadhyayguragain/badges",
       issued: "2024"
@@ -46,7 +46,7 @@ const Certifications = () => {
   ];
 
   return (
-    <section className={`py-12 ${isDark ? 'bg-gray-900' : 'bg-white'}`}>
+    <section className={`py-12 ${isDark ? 'bg-gray-900' : 'bg-sky-50'}`}>
       <div className="container mx-auto px-6">
         <div className="text-center mb-10">
           <h2 className={`text-5xl font-bold mb-4 animate-fade-in bg-gradient-to-r ${
