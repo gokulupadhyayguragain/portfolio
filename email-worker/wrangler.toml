@@ -18,8 +18,8 @@ name = "portfolio-email-worker-dev"
 # Environment variables
 [vars]
 CORS_ORIGIN = "https://portfolio-e5u.pages.dev"
-FROM_EMAIL = "noreply@addtocloud.tech"
-TO_EMAIL = "gokul@addtocloud.tech"
+FROM_EMAIL = "gokul@addtocloud.tech"
+TO_EMAIL = "noreply@addtocloud.tech"
 
 # Secrets to be set via wrangler secret put
 # Use your existing SMTP credentials
