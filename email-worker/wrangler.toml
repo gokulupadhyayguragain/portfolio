@@ -16,7 +16,7 @@ name = "portfolio-email-worker-dev"
 
 # Environment variables
 [vars]
-CORS_ORIGIN = "https://portfolio-e5u.pages.dev"
+CORS_ORIGIN = "*"
 FROM_EMAIL = "gokul@addtocloud.tech"
 TO_EMAIL = "noreply@addtocloud.tech"
 

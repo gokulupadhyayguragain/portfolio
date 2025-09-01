@@ -1,10 +1,11 @@
 export default {
   async fetch(request, env, ctx) {
-    // CORS headers
+    // CORS headers - more permissive for testing
     const corsHeaders = {
-      'Access-Control-Allow-Origin': env.CORS_ORIGIN || '*',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS, GET',
+      'Access-Control-Max-Age': '86400',
     };
 
     // Handle preflight requests
