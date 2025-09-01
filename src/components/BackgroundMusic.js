@@ -56,6 +56,8 @@ export default function BackgroundMusic() {
           document.addEventListener('click', autoUnmute, { once: true });
           document.addEventListener('touchstart', autoUnmute, { once: true });
           document.addEventListener('keydown', autoUnmute, { once: true });
+          document.addEventListener('scroll', autoUnmute, { once: true });
+          document.addEventListener('mousemove', autoUnmute, { once: true });
           
         } catch (mutedError) {
           console.log("❌ Even muted auto-play failed, showing controls");
