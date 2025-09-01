@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="oracleGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#c74634;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b2914;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="oracleText" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffe6e6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="58" fill="url(#oracleGradient)" stroke="#6b1f12" stroke-width="2"/>
+  
+  <!-- Oracle cloud icon -->
+  <ellipse cx="60" cy="45" rx="25" ry="12" fill="none" stroke="url(#oracleText)" stroke-width="3" opacity="0.9"/>
+  <ellipse cx="60" cy="50" rx="20" ry="10" fill="none" stroke="url(#oracleText)" stroke-width="2" opacity="0.7"/>
+  <ellipse cx="60" cy="55" rx="15" ry="8" fill="none" stroke="url(#oracleText)" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Oracle logo text -->
+  <text x="60" y="75" text-anchor="middle" fill="url(#oracleText)" font-family="Arial, sans-serif" font-size="14" font-weight="700">ORACLE</text>
+  <text x="60" y="88" text-anchor="middle" fill="url(#oracleText)" font-family="Arial, sans-serif" font-size="8" font-weight="500">CLOUD</text>
+  <text x="60" y="98" text-anchor="middle" fill="url(#oracleText)" font-family="Arial, sans-serif" font-size="8" font-weight="500">INFRASTRUCTURE</text>
+  <text x="60" y="108" text-anchor="middle" fill="url(#oracleText)" font-family="Arial, sans-serif" font-size="7" font-weight="400">FOUNDATIONS</text>
+</svg>

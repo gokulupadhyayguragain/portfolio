@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="googleGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#4285f4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3367d6;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="googleText" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8f0fe;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="58" fill="url(#googleGradient)" stroke="#1a73e8" stroke-width="2"/>
+  
+  <!-- Google Cloud icon -->
+  <path d="M45 35 Q35 35 35 45 Q35 50 40 52 L80 52 Q85 50 85 45 Q85 35 75 35 Z" fill="url(#googleText)" opacity="0.9"/>
+  <circle cx="70" cy="60" r="8" fill="none" stroke="url(#googleText)" stroke-width="2" opacity="0.7"/>
+  <circle cx="50" cy="60" r="5" fill="none" stroke="url(#googleText)" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Google colors -->
+  <circle cx="25" cy="75" r="3" fill="#ea4335"/>
+  <circle cx="32" cy="75" r="3" fill="#fbbc04"/>
+  <circle cx="39" cy="75" r="3" fill="#34a853"/>
+  <circle cx="46" cy="75" r="3" fill="#4285f4"/>
+  
+  <!-- Text -->
+  <text x="60" y="90" text-anchor="middle" fill="url(#googleText)" font-family="Roboto, Arial, sans-serif" font-size="11" font-weight="700">GOOGLE CLOUD</text>
+  <text x="60" y="102" text-anchor="middle" fill="url(#googleText)" font-family="Roboto, Arial, sans-serif" font-size="8" font-weight="500">CERTIFIED</text>
+  <text x="60" y="112" text-anchor="middle" fill="url(#googleText)" font-family="Roboto, Arial, sans-serif" font-size="7" font-weight="400">ASSOCIATE</text>
+</svg>

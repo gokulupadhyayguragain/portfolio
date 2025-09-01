@@ -1,0 +1,26 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="msftDataGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0078d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#005a9e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Outer circle -->
+  <circle cx="60" cy="60" r="55" fill="url(#msftDataGradient)" stroke="#ffffff" stroke-width="3"/>
+  
+  <!-- Microsoft squares pattern -->
+  <rect x="40" y="35" width="12" height="12" fill="#ffffff" rx="1"/>
+  <rect x="68" y="35" width="12" height="12" fill="#ffffff" rx="1"/>
+  <rect x="40" y="50" width="12" height="12" fill="#ffffff" rx="1"/>
+  <rect x="68" y="50" width="12" height="12" fill="#40e0d0" rx="1"/>
+  
+  <!-- Database/Data symbol -->
+  <ellipse cx="60" cy="72" rx="15" ry="4" fill="#ffffff"/>
+  <ellipse cx="60" cy="78" rx="15" ry="4" fill="#ffffff"/>
+  <ellipse cx="60" cy="84" rx="15" ry="4" fill="#ffffff"/>
+  <rect x="45" y="72" width="30" height="12" fill="#ffffff"/>
+  
+  <!-- Text -->
+  <text x="60" y="100" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="8" font-weight="bold">AZURE DATA</text>
+  <text x="60" y="110" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="6">FUNDAMENTALS</text>
+</svg>

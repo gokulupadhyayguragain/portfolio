@@ -1,0 +1,37 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="dockerGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#2496ed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a73cc;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="dockerText" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e6f4ff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="58" fill="url(#dockerGradient)" stroke="#0f5499" stroke-width="2"/>
+  
+  <!-- Docker whale icon -->
+  <rect x="35" y="45" width="6" height="6" fill="url(#dockerText)" rx="1"/>
+  <rect x="43" y="45" width="6" height="6" fill="url(#dockerText)" rx="1"/>
+  <rect x="51" y="45" width="6" height="6" fill="url(#dockerText)" rx="1"/>
+  <rect x="59" y="45" width="6" height="6" fill="url(#dockerText)" rx="1"/>
+  <rect x="67" y="45" width="6" height="6" fill="url(#dockerText)" rx="1"/>
+  <rect x="75" y="45" width="6" height="6" fill="url(#dockerText)" rx="1"/>
+  
+  <rect x="43" y="37" width="6" height="6" fill="url(#dockerText)" rx="1"/>
+  <rect x="51" y="37" width="6" height="6" fill="url(#dockerText)" rx="1"/>
+  <rect x="59" y="37" width="6" height="6" fill="url(#dockerText)" rx="1"/>
+  
+  <rect x="51" y="29" width="6" height="6" fill="url(#dockerText)" rx="1"/>
+  
+  <!-- Whale body -->
+  <path d="M30 53 Q60 58 90 53 Q85 65 60 65 Q35 65 30 53 Z" fill="url(#dockerText)" opacity="0.8"/>
+  
+  <!-- Text -->
+  <text x="60" y="85" text-anchor="middle" fill="url(#dockerText)" font-family="Arial, sans-serif" font-size="12" font-weight="700">DOCKER</text>
+  <text x="60" y="96" text-anchor="middle" fill="url(#dockerText)" font-family="Arial, sans-serif" font-size="8" font-weight="500">CERTIFIED</text>
+  <text x="60" y="106" text-anchor="middle" fill="url(#dockerText)" font-family="Arial, sans-serif" font-size="7" font-weight="400">ASSOCIATE</text>
+</svg>

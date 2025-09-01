@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="terraformGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#623ce4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4b2db8;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="terraformText" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0edff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="58" fill="url(#terraformGradient)" stroke="#3a2390" stroke-width="2"/>
+  
+  <!-- Terraform T logo -->
+  <rect x="45" y="30" width="30" height="6" fill="url(#terraformText)"/>
+  <rect x="57" y="30" width="6" height="30" fill="url(#terraformText)"/>
+  <polygon points="70,40 82,46 82,54 70,48" fill="url(#terraformText)" opacity="0.8"/>
+  
+  <!-- Text -->
+  <text x="60" y="78" text-anchor="middle" fill="url(#terraformText)" font-family="Arial, sans-serif" font-size="11" font-weight="700">TERRAFORM</text>
+  <text x="60" y="90" text-anchor="middle" fill="url(#terraformText)" font-family="Arial, sans-serif" font-size="8" font-weight="500">CERTIFIED</text>
+  <text x="60" y="100" text-anchor="middle" fill="url(#terraformText)" font-family="Arial, sans-serif" font-size="8" font-weight="500">ASSOCIATE</text>
+  <text x="60" y="110" text-anchor="middle" fill="url(#terraformText)" font-family="Arial, sans-serif" font-size="7" font-weight="400">003</text>
+</svg>

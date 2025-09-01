@@ -1,0 +1,29 @@
+name = "gokul-portfolio"
+compatibility_date = "2024-08-01"
+pages_build_output_dir = "out"
+
+[env.production]
+compatibility_date = "2024-08-01"
+
+[[env.production.vars]]
+NEXT_PUBLIC_SITE_URL = "https://gokul-portfolio.pages.dev"
+
+[build]
+command = "npm run build"
+cwd = "."
+
+[build.environment_variables]
+NODE_VERSION = "18"
+
+# Environment variables for SMTP (will be set via secrets)
+[vars]
+NEXT_PUBLIC_CONTACT_EMAIL = "gokul@addtocloud.tech"
+
+# Secrets (set via wrangler secret put or GitHub Actions)
+# SMTP_HOST
+# SMTP_PORT  
+# SMTP_USER
+# SMTP_PASSWORD
+# CLOUDFLARE_API_TOKEN
+# CLOUDFLARE_ACCOUNT_ID
+# CLOUDFLARE_ZONE_ID

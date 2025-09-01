@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="azureAdminGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#0078d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#106ebe;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="azureAdminText" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e6f3ff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="58" fill="url(#azureAdminGradient)" stroke="#004578" stroke-width="2"/>
+  
+  <!-- Azure admin shield -->
+  <path d="M60 25 L40 35 L40 55 Q40 70 60 75 Q80 70 80 55 L80 35 Z" fill="url(#azureAdminText)" opacity="0.9"/>
+  <path d="M60 35 L48 42 L48 58 Q48 68 60 70 Q72 68 72 58 L72 42 Z" fill="url(#azureAdminGradient)" opacity="0.8"/>
+  
+  <!-- Microsoft logo elements -->
+  <rect x="25" y="85" width="6" height="6" fill="#ff6900"/>
+  <rect x="33" y="85" width="6" height="6" fill="#00a1f1"/>
+  <rect x="25" y="93" width="6" height="6" fill="#7fba00"/>
+  <rect x="33" y="93" width="6" height="6" fill="#ffb900"/>
+  
+  <!-- Text -->
+  <text x="60" y="105" text-anchor="middle" fill="url(#azureAdminText)" font-family="Segoe UI, Arial, sans-serif" font-size="8" font-weight="600">AZURE ADMINISTRATOR</text>
+  <text x="60" y="115" text-anchor="middle" fill="url(#azureAdminText)" font-family="Segoe UI, Arial, sans-serif" font-size="6" font-weight="400">ASSOCIATE</text>
+</svg>
