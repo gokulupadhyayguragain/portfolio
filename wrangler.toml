@@ -10,6 +10,9 @@ compatibility_flags = ["nodejs_compat"]
 [[env.production.vars]]
 NEXT_PUBLIC_SITE_URL = "https://portfolio-e5u.pages.dev"
 
+[[env.production.vars]]
+NEXT_PUBLIC_CONTACT_EMAIL = "gokul@addtocloud.tech"
+
 # Environment variables for production
 [vars]
 NEXT_PUBLIC_CONTACT_EMAIL = "gokul@addtocloud.tech"
