@@ -1,0 +1,37 @@
+name = "portfolio-email-worker"
+main = "src/index.js"
+compatibility_date = "2024-08-01"
+compatibility_flags = ["nodejs_compat"]
+
+# KV namespace for rate limiting (optional)
+# [[kv_namespaces]]
+# binding = "EMAIL_KV"
+# id = "your_kv_namespace_id"
+
+[env.production]
+name = "portfolio-email-worker"
+route = "https://email.addtocloud.tech/*"
+
+[env.dev]
+name = "portfolio-email-worker-dev"
+
+# Environment variables
+[vars]
+CORS_ORIGIN = "https://portfolio-e5u.pages.dev"
+FROM_EMAIL = "noreply@addtocloud.tech"
+TO_EMAIL = "gokul@addtocloud.tech"
+
+# Secrets to be set via wrangler secret put
+# Use your existing SMTP credentials
+# SMTP_HOST
+# SMTP_PORT  
+# SMTP_USER
+# SMTP_PASSWORD (use the same password you have)
+# ZOHO_SMTP_HOST
+# ZOHO_SMTP_PORT
+# ZOHO_SMTP_USER
+# ZOHO_SMTP_PASSWORD
+
+# Optional: Modern email APIs (if you want alternatives)
+# RESEND_API_KEY
+# SMTP2GO_API_KEY

@@ -1,0 +1,17 @@
+{
+  "name": "portfolio-email-worker",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker for portfolio contact form email sending",
+  "main": "src/index.js",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "tail": "wrangler tail"
+  },
+  "keywords": ["cloudflare", "worker", "email", "portfolio"],
+  "author": "Gokul Upadhyay",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.78.12"
+  }
+}

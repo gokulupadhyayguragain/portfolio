@@ -27,7 +27,8 @@ const Contact = () => {
     setSubmitStatus(null);
     
     try {
-      const response = await fetch('/api/contact', {
+      // Use the dedicated email worker instead of local API
+      const response = await fetch('https://portfolio-email-worker.gocools.workers.dev', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,7 +39,10 @@ const Contact = () => {
       const result = await response.json();
       
       if (result.success) {
-        setSubmitStatus({ type: 'success', message: 'Message sent successfully! I\'ll get back to you soon.' });
+        setSubmitStatus({ 
+          type: 'success', 
+          message: result.message || 'Message sent successfully! I\'ll get back to you soon.' 
+        });
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
         setSubmitStatus({ type: 'error', message: result.error || 'Failed to send message. Please try again.' });
