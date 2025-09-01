@@ -43,6 +43,7 @@ jobs:
       - name: Deploy Wrangler Configuration
         run: |
           echo "Setting up Wrangler secrets..."
+          npx wrangler pages secret put SENDGRID_API_KEY --project-name portfolio --env production <<< "${{ secrets.SENDGRID_API_KEY }}"
           npx wrangler pages secret put SMTP_HOST --project-name portfolio --env production <<< "${{ secrets.SMTP_HOST }}"
           npx wrangler pages secret put SMTP_PORT --project-name portfolio --env production <<< "${{ secrets.SMTP_PORT }}"
           npx wrangler pages secret put SMTP_USER --project-name portfolio --env production <<< "${{ secrets.SMTP_USER }}"
