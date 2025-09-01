@@ -15,6 +15,7 @@ import Gallery from "../components/Gallery";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import CustomCursor from "../components/CustomCursor";
+import BackgroundMusic from "../components/BackgroundMusic";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("about");
@@ -66,6 +67,9 @@ export default function Home() {
     }`}>
       {/* Custom Tracking Cursor */}
       <CustomCursor />
+      
+      {/* Background Music */}
+      <BackgroundMusic />
       
       {/* 3D Galaxy Black Hole Background */}
       <GalaxyBlackHole isDarkMode={isDarkMode} />
