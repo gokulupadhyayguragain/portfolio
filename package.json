@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "wrangler pages deploy out --project-name=gokul-portfolio",
-    "deploy:production": "npm run build && wrangler pages deploy out --project-name=gokul-portfolio --env=production"
+    "deploy": "wrangler pages deploy out --project-name=portfolio",
+    "deploy:production": "npm run build && wrangler pages deploy out --project-name=portfolio --env=production"
   },
   "dependencies": {
     "autoprefixer": "^10.4.21",

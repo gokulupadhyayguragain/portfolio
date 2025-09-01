@@ -27,7 +27,7 @@ jobs:
       - name: Build application
         run: npm run build
         env:
-          NEXT_PUBLIC_SITE_URL: https://gokul-portfolio.pages.dev
+          NEXT_PUBLIC_SITE_URL: https://portfolio-e5u.pages.dev
           NEXT_PUBLIC_CONTACT_EMAIL: gokul@addtocloud.tech
 
       - name: Deploy to Cloudflare Pages
@@ -35,7 +35,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: gokul-portfolio
+          projectName: portfolio
           directory: out
           # Optional: Use a custom domain
           # gitHubToken: ${{ secrets.GITHUB_TOKEN }}
