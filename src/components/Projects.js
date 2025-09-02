@@ -4,6 +4,17 @@ import ProjectImage from "./ProjectImage";
 
 const projects = [
   {
+    name: "AddToCloud",
+    type: "Business Project",
+    tech: "Next.js, Cloudflare Pages, Resend API, Workers",
+    description: "Professional cloud solutions platform with email services, portfolio hosting, and domain management.",
+    github: "https://github.com/gokulupadhyayguragain/portfolio",
+    website: "https://addtocloud.tech",
+    status: "Active",
+    featured: true,
+    highlights: ["Cloud Solutions", "Email Services", "Professional Platform"]
+  },
+  {
     name: "Hyprland Dotfiles",
     type: "Open Source",
     tech: "Shell Script, Hyprland, Waybar",
@@ -154,6 +165,20 @@ export default function Projects() {
                   >
                     <span>💻</span> GitHub
                   </a>
+                  {proj.website && (
+                    <a 
+                      href={proj.website} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors text-sm ${
+                        isDarkMode 
+                          ? 'bg-pink-700/60 text-white hover:bg-pink-600/80' 
+                          : 'bg-pink-600 text-white hover:bg-pink-700'
+                      }`}
+                    >
+                      <span>🌐</span> Visit Site
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -228,6 +253,20 @@ export default function Projects() {
                   >
                     <span>💻</span> Code
                   </a>
+                  {proj.website && (
+                    <a 
+                      href={proj.website} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className={`flex items-center gap-1 px-3 py-1 rounded transition-colors text-xs ${
+                        isDarkMode 
+                          ? 'bg-pink-700/60 text-white hover:bg-pink-600/80' 
+                          : 'bg-pink-600 text-white hover:bg-pink-700'
+                      }`}
+                    >
+                      <span>🌐</span> Site
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
