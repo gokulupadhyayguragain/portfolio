@@ -20,7 +20,7 @@ const projects = [
     tech: "Shell Script, Hyprland, Waybar",
     description: "Productivity-focused window manager setup for Linux.",
     github: "https://github.com/gokulupadhyayguragain/hyprland",
-    status: "Active",
+    status: "Completed",
     featured: true,
     highlights: ["Window Manager", "Productivity", "Open Source"]
   },
@@ -31,7 +31,7 @@ const projects = [
     description: "Learning Management System with user authentication and dashboards.",
     github: "https://github.com/gokulupadhyayguragain/lms-agm-solutions",
     status: "Completed",
-    featured: true,
+    featured: false,
     highlights: ["Database Design", "Authentication", "ASP.NET"]
   },
   {
